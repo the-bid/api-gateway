@@ -1,0 +1,31 @@
+{
+  "name": "the-bid-gateway",
+  "version": "0.1.0",
+  "description": "This is an API gateway that exposes the microservices for The Bid.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r dotenv/config src/index.js",
+    "start:dev": "npm-run-all -pl start playground",
+    "start:prod": "node src/index.js",
+    "playground": "graphql playground --port 3000"
+  },
+  "author": "bialesdaniel@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-link-context": "^1.0.8",
+    "apollo-link-http": "^1.5.4",
+    "graphql": "^0.13.2",
+    "graphql-import": "^0.5.2",
+    "graphql-tools": "^3.0.0",
+    "graphql-yoga": "^1.9.2",
+    "jsonwebtoken": "^8.2.1",
+    "lodash": "^4.17.10",
+    "node-fetch": "^2.1.2"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.1",
+    "nodemon": "^1.17.4",
+    "npm-run-all": "^4.1.2"
+  }
+}
