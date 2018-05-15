@@ -4,6 +4,7 @@
   "description": "This is an API gateway that exposes the microservices for The Bid.",
   "main": "src/index.js",
   "scripts": {
+    "lint": "eslint . --fix --ignore-path .gitignore --ignore-pattern '!.eslintrc.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node -r dotenv/config src/index.js",
     "start:dev": "npm-run-all -pl start playground",
@@ -25,7 +26,19 @@
   },
   "devDependencies": {
     "dotenv": "^5.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-security": "^1.4.0",
+    "jest": "^22.4.3",
     "nodemon": "^1.17.4",
-    "npm-run-all": "^4.1.2"
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.12.1"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 120,
+    "singleQuote": true
   }
 }

@@ -1,7 +1,7 @@
 const microservicesConfig = require('./microservices.config')
 const serviceConfig = require('./service.config')
 
-module.exports={
+module.exports = {
   ...microservicesConfig,
   ...serviceConfig
 }

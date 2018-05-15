@@ -1,19 +1,17 @@
-const {HttpLink} = require('apollo-link-http')
+const { HttpLink } = require('apollo-link-http')
 const {
-   makeRemoteExecutableSchema,
-   introspectSchema,
-   transformSchema,
-   FilterRootFields
+  makeRemoteExecutableSchema,
+  introspectSchema /*, transformSchema, FilterRootFields*/
 } = require('graphql-tools')
 const fetch = require('node-fetch')
-const {addAuthHeaderContext} = require('../utils')
-const {AUCTIONS_URI} = require('../../config')
+const { addAuthHeaderContext } = require('../utils')
+const { AUCTIONS_URI } = require('../../config')
 
-async function getAuctionsSchema(){
-  const http = new HttpLink({uri:AUCTIONS_URI,fetch})
+async function getAuctionsSchema() {
+  const http = new HttpLink({ uri: AUCTIONS_URI, fetch })
   const link = addAuthHeaderContext().concat(http)
   const schema = await introspectSchema(link)
-  const auctionsSchema= makeRemoteExecutableSchema({
+  const auctionsSchema = makeRemoteExecutableSchema({
     schema,
     link
   })

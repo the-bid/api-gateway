@@ -1,23 +1,23 @@
-const {setContext} = require('apollo-link-context')
-const {get} = require('lodash')
+const { setContext } = require('apollo-link-context')
+const { get } = require('lodash')
 
-function parseBearerToken(request){
-  return request.headers.authorization.replace('Bearer ','')
+function parseBearerToken(request) {
+  return request.headers.authorization.replace('Bearer ', '')
 }
 
-function addAuthHeaderContext(){
-  return setContext((request,previousContext)=>{
-    const bearerToken = get(previousContext,'graphqlContext.bearerToken')
-    if(bearerToken){
+function addAuthHeaderContext() {
+  return setContext((request, previousContext) => {
+    const bearerToken = get(previousContext, 'graphqlContext.bearerToken')
+    if (bearerToken) {
       return {
-        headers:{
-          'authorization': `Bearer ${bearerToken}`
+        headers: {
+          authorization: `Bearer ${bearerToken}`
         }
       }
-    }else{
+    } else {
       return {}
     }
   })
 }
 
-module.exports = {parseBearerToken,addAuthHeaderContext}
+module.exports = { parseBearerToken, addAuthHeaderContext }
