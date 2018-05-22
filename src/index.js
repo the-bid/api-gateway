@@ -1,5 +1,6 @@
 const { GraphQLServer } = require('graphql-yoga')
 const { graphql } = require('graphql')
+const { get } = require('lodash')
 const { PORT } = require('../config')
 const mergedSchemas = require('./schemas/merged-schemas')
 const { parseBearerToken } = require('./utils')
@@ -25,7 +26,7 @@ async function run() {
             null,
             { bearerToken: parseBearerToken(req.request) }
           )
-          context.bearerToken = data.getJWT.token
+          context.bearerToken = get(data, 'getJWT.token')
         }
         return context
       }

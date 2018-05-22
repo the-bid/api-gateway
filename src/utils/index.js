@@ -2,7 +2,8 @@ const { setContext } = require('apollo-link-context')
 const { get } = require('lodash')
 
 function parseBearerToken(request) {
-  return request.headers.authorization.replace('Bearer ', '')
+  const authHeader = get(request, 'headers.authorization', '')
+  return authHeader.includes('Bearer ') ? authHeader.replace('Bearer ', '') : null
 }
 
 function addAuthHeaderContext() {
