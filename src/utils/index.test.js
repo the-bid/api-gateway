@@ -1,4 +1,4 @@
-const { uuid } = require('casual')
+const casual = require('casual')
 const { parseBearerToken } = require('./index')
 
 describe('utils', () => {
@@ -6,7 +6,7 @@ describe('utils', () => {
     let request = {}
     beforeEach(() => {
       request.headers = {
-        authorization: `Bearer ${uuid}`
+        authorization: `Bearer ${casual.uuid}`
       }
     })
     afterEach(() => {
@@ -17,7 +17,7 @@ describe('utils', () => {
       expect(result).toEqual(expect.stringMatching(/^[^Bearer].*$/))
     })
     test('returns null if auth is not a Bearer token', () => {
-      request.headers.authorization = `Basic ${uuid}`
+      request.headers.authorization = `Basic ${casual.uuid}`
       const result = parseBearerToken(request)
       expect(result).toBeNull()
     })
