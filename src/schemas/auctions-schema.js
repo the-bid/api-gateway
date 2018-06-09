@@ -28,7 +28,6 @@ const linkAuctionSchema = `
     owner: User!
   }
 `
-//TODO: should I move the above mutation?
 module.exports = {
   getAuctionsSchema,
   linkAuctionSchema
