@@ -1,40 +1,46 @@
 const Bid = {
   user: {
     fragment: `fragment BidFragment on Bid { userId }`,
-    async resolve(parent,args,context,info){
+    async resolve(parent, args, context, info) {
       return info.mergeInfo.delegateToSchema({
         schema: info.schema,
         operation: 'query',
         fieldName: 'user',
-        args:{
+        args: {
           id: parent.userId
-        },context,info
+        },
+        context,
+        info
       })
     }
   },
   auction: {
     fragment: `fragment BidFragment on Bid { auctionId }`,
-    async resolve(parent,args,context,info){
+    async resolve(parent, args, context, info) {
       return info.mergeInfo.delegateToSchema({
-        schema:info.schema,
+        schema: info.schema,
         operation: 'query',
         fieldName: 'auction',
         args: {
           id: parent.auctionId
-        },context,info
+        },
+        context,
+        info
       })
     }
   },
   team: {
     fragment: `fragment BidFragment on Bid { auctionId }`,
-    async resolve(parent,args,context,info){
+    async resolve(parent, args, context, info) {
       return info.mergeInfo.delegateToSchema({
         schema: info.schema,
         operation: 'query',
         fieldName: 'team',
         args: {
           id: parent.teamId
-        },context,info
+        },
+        context,
+        info
       })
     }
   }
