@@ -1,6 +1,6 @@
 const Bid = {
   user: {
-    fragment: `fragment BidFragment on Bid { userId }`,
+    fragment: `... on Bid { userId } `,
     async resolve(parent, args, context, info) {
       return info.mergeInfo.delegateToSchema({
         schema: info.schema,
@@ -15,7 +15,7 @@ const Bid = {
     }
   },
   auction: {
-    fragment: `fragment BidFragment on Bid { auctionId }`,
+    fragment: `... on Bid { auctionId }`,
     async resolve(parent, args, context, info) {
       return info.mergeInfo.delegateToSchema({
         schema: info.schema,
@@ -30,7 +30,7 @@ const Bid = {
     }
   },
   team: {
-    fragment: `fragment BidFragment on Bid { auctionId }`,
+    fragment: `... on Bid { teamId }`,
     async resolve(parent, args, context, info) {
       return info.mergeInfo.delegateToSchema({
         schema: info.schema,

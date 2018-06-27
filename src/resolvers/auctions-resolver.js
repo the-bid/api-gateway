@@ -1,6 +1,6 @@
 const Auction = {
   owner: {
-    fragment: `fragment AuctionFragment on Auction { ownerId }`,
+    fragment: `... on Auction { ownerId }`,
     async resolve(parent, args, context, info) {
       return info.mergeInfo.delegateToSchema({
         schema: info.schema,

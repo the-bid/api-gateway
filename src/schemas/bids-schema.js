@@ -15,7 +15,7 @@ async function getBidsSchema() {
   return bidsSchema
 }
 
-const linkBidsSchema = `
+const linkBidSchema = `
   extend type Bid {
     user: User!
     auction: Auction!
@@ -24,5 +24,5 @@ const linkBidsSchema = `
 `
 module.exports = {
   getBidsSchema,
-  linkBidsSchema
+  linkBidSchema
 }

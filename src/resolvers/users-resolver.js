@@ -1,6 +1,6 @@
 const User = {
   auctions: {
-    fragment: `fragment UserFragment on User { id }`,
+    fragment: `... on User { id }`,
     async resolve(parent, args, context, info) {
       return info.mergeInfo.delegateToSchema({
         schema: info.schema,

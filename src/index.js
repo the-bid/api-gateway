@@ -39,6 +39,7 @@ async function run() {
       () => console.log(`the-bid-gateway is running on port: ${PORT}`)
     )
   } catch (error) {
+    console.log(error)
     console.log(`Error starting server: ${error}`)
   }
   /* eslint-enable no-console */
