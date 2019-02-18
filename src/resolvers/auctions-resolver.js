@@ -13,6 +13,23 @@ const Auction = {
         info
       })
     }
+  },
+  players: {
+    fragment: `... on Auction {playerIds}`,
+    async resolve(parent, args, context, info) {
+      return info.mergeInfo.delegateToSchema({
+        schema: info.schema,
+        operation: 'query',
+        fieldName: 'users',
+        args: {
+          filter: {
+            ids: parent.ownerId
+          }
+        },
+        context,
+        info
+      })
+    }
   }
 }
 

@@ -26,6 +26,7 @@ async function getAuctionsSchema() {
 const linkAuctionSchema = `
   extend type Auction {
     owner: User!
+    players: [User]!
   }
 `
 module.exports = {

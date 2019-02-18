@@ -14,7 +14,7 @@ describe('utils', () => {
     })
     test('returns a Bearer token', () => {
       const result = parseBearerToken(request)
-      expect(result).toEqual(expect.stringMatching(/^[^Bearer].*$/))
+      expect(result).toEqual(expect.stringMatching(/^(?!Bearer).*$/))
     })
     test('returns null if auth is not a Bearer token', () => {
       request.headers.authorization = `Basic ${casual.uuid}`
