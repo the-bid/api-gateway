@@ -11,7 +11,9 @@
     "start": "node -r dotenv/config src/index.js",
     "start:dev": "npm-run-all -pl start playground",
     "start:prod": "node src/index.js",
-    "playground": "graphql playground --port 3000"
+    "playground": "graphql playground --port 3000",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "author": "bialesdaniel@gmail.com",
   "license": "ISC",
@@ -21,10 +23,11 @@
     "graphql": "^14.2.1",
     "graphql-import": "^0.7.1",
     "graphql-tools": "^4.0.4",
-    "graphql-yoga": "^1.17.4",
+    "graphql-yoga": "^1.18.1",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.11",
-    "node-fetch": "^2.4.0"
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "casual": "^1.6.0",
@@ -49,5 +52,6 @@
       "<rootDir>/test",
       "<rootDir>/config"
     ]
-  }
+  },
+  "snyk": true
 }
