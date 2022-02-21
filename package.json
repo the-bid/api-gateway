@@ -24,7 +24,7 @@
     "graphql-yoga": "^1.17.4",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.11",
-    "node-fetch": "^2.4.0"
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "casual": "^1.6.0",
